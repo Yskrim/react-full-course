@@ -16,14 +16,16 @@
         <script type="text/babel">
             const container = document.querySelector('.js-container');
 
-            //1i get current time and render in p
-            const p = (
+            //1j get current time and render in p every second to make a clock
+            const root = ReactDOM.createRoot(container);
+
+
+            setInterval(() => {
+                const p = (
                 <p>Current time: {dayjs().format("HH:mm:ss")}</p>
             )
-
-            ReactDOM
-                .createRoot(container)
-                .render(p);
+                root.render(p)
+            }, 1000);
         </script>
     </body>
 </html>
