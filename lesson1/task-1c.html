@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>React Basics</title>
+        <title>Lesson 1 tasks</title>
     </head>
     <body>
         <div class="js-container"></div>
@@ -13,13 +13,20 @@
         <script type="text/babel">
             const container = document.querySelector('.js-container');
 
-            //1b render <p> with my name in it
-            const name = 'Anton';
-            const paragraph = <p>My name is {name}</p>;
+            //1c render required div
+            const product_name = "Cotton socks"
+            const price = 10
+            const div = (   
+                <div>
+                    <p>{ product_name }</p>
+                    <p>Price: ${ price }</p>
+                    <button>Add to cart</button>
+                </div>
+            );
             
             ReactDOM
                 .createRoot(container)
-                .render(paragraph);
+                .render(div);
         </script>
     </body>
 </html>
