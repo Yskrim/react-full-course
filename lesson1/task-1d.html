@@ -13,20 +13,15 @@
         <script type="text/babel">
             const container = document.querySelector('.js-container');
 
-            //1c render required div
-            const product_name = "Cotton socks"
-            const price = 10
-            const div = (   
-                <div>
-                    <p>{ product_name }</p>
-                    <p>Price: ${ price }</p>
-                    <button>Add to cart</button>
-                </div>
-            );
-            
+            //1d
+            const socks_p=10
+            const tee_p=8
+            const productCost=socks_p + 2 * tee_p;
+            console.log(productCost);
+
             ReactDOM
                 .createRoot(container)
-                .render(div);
+                .render("");
         </script>
     </body>
 </html>
