@@ -16,9 +16,9 @@
         <script type="text/babel">
             const container = document.querySelector('.js-container');
 
-            //1h -- import dayjs and render the formatted date with react
+            //1i get current time and render in p
             const p = (
-                <p>Today is {dayjs().format("MMMM D")}</p>
+                <p>Current time: {dayjs().format("HH:mm:ss")}</p>
             )
 
             ReactDOM
