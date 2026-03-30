@@ -10,27 +10,18 @@
         <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
 
         <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+        <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
         <script type="text/babel">
             const container = document.querySelector('.js-container');
 
-            //1f
-            const socks_p=10
-            const tee_p=8
-            const productCost=socks_p + 2 * tee_p;
-            const shipping_fee=5
-
-            const div = (
-                <div>
-                    <p>Product cost: ${productCost}</p>
-                    <p>Shipping cost: ${shipping_fee}</p>
-                    <p>Total cost: ${productCost + shipping_fee}</p>
-                    <button>Place your order</button>
-                </div>
-            )
+            //1g
+            console.log(dayjs().format('MMMM D'))
 
             ReactDOM
                 .createRoot(container)
-                .render(div);
+                .render('');
         </script>
     </body>
 </html>
