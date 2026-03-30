@@ -13,12 +13,13 @@
         <script type="text/babel">
             const container = document.querySelector('.js-container');
 
-            //1a render button with text "Good job"
-            const btn = <button>Good job</button>;
+            //1b render <p> with my name in it
+            const name = 'Anton';
+            const paragraph = <p>My name is {name}</p>;
             
             ReactDOM
                 .createRoot(container)
-                .render(btn);
+                .render(paragraph);
         </script>
     </body>
 </html>
