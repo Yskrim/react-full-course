@@ -13,22 +13,23 @@
 
         <script type="text/babel">
             
-            //2f display 2 more products on the same page 
+            //2g add a prop for discount price 
             function App(){
                 return(
                     <>
-                        <ProductDetails name="Cotton socks" price="10.90"/>
-                        <ProductDetails name="Tennis balls" price="6.00"/>
-                        <ProductDetails name="Cotton socks" price="7.99"/>
+                        <ProductDetails name="Cotton socks" price="10.90" discprice="5.45"/>
+                        <ProductDetails name="Tennis balls" price="6.00" discprice="3.00"/>
+                        <ProductDetails name="Cotton socks" price="7.99" discprice="3.49"/>
                     </>
                 )
             }
 
-            function ProductDetails({ name, price }){
+            function ProductDetails({ name, price, discprice }){
                 return (
                     <div>
                         <p>{ name }</p>
                         <p>Price: ${ price }</p>
+                        <p>Discount price: ${ discprice }</p>
                         <button>Add to cart</button>
                     </div>
                 )
