@@ -13,25 +13,45 @@
 
         <script type="text/babel">
             
-            //2i use ternary operator for discounted price (already used it)
+            //2j add images to the items and add a prop to load from
             function App(){
                 return(
                     <>
-                        <ProductDetails name="Cotton socks" price="10.90" discprice="5.45"/>
-                        <ProductDetails name="Tennis balls" price="6.00" discprice="3.00"/>
-                        <ProductDetails name="Cotton socks" price="7.99"/>
+                        <ProductDetails 
+                            image="https://supersimple.dev/images/cotton-socks.png" 
+                            name="Cotton socks" 
+                            price="10.90" 
+                            discprice="5.45"
+                        />
+
+                        <ProductDetails 
+                            image="https://supersimple.dev/images/plain-t-shirt.png" 
+                            name="Plain T-shirt" 
+                            price="20.00" 
+                            discprice="10.00"
+                        />
+
+                        <ProductDetails 
+                            name="Cotton socks" 
+                            price="7.99"
+                        />
                     </>
                 )
             }
 
-            function ProductDetails({ name, price, discprice }){
+            function ProductDetails({ name, price, discprice, image }){
                 return (
                     <div>
+                        { image && <img width="128" src={image} />}
+                        
                         <p>{ name }</p>
+                        
                         { discprice 
                             ? <del> <p>Price: ${ price }</p> </del> 
                             : <p>Price: ${ price }</p> }
+                        
                         { discprice && <p>Discount price: ${ discprice }</p>}
+                        
                         <button>Add to cart</button>
                     </div>
                 )
