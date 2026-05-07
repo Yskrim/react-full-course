@@ -13,11 +13,19 @@
 
         <script type="text/babel">
             
-            //2a add inputs for email and password that take their own lines using div, add types to the inputs
+            //2a create a new LoginForm() component that will render the inputs and add it to the App()
             function App(){
                 return(
                     <>
                         <p>Hello, welcome to my website</p>
+                        <LoginForm />
+                    </>
+                )
+            }
+
+            function LoginForm(){
+                return (
+                    <form>
                         <div>
                             <input type="email" placeholder="Email"/>
                         </div>
@@ -26,7 +34,7 @@
                         </div>
                         <button>Login</button>
                         <button>Sign up</button>
-                    </>
+                    </form>
                 )
             }
 
