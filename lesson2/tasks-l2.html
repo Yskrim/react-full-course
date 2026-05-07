@@ -13,28 +13,20 @@
 
         <script type="text/babel">
             
-            //2a create a new LoginForm() component that will render the inputs and add it to the App()
+            //2e craete App component that displays product details on the website
             function App(){
                 return(
-                    <>
-                        <p>Hello, welcome to my website</p>
-                        <LoginForm />
-                    </>
+                    <ProductDetails name="Cotton socks" price="10.90"/>
                 )
             }
 
-            function LoginForm(){
+            function ProductDetails({ name, price }){
                 return (
-                    <form>
-                        <div>
-                            <input type="email" placeholder="Email"/>
-                        </div>
-                        <div>
-                            <input type="password" placeholder="Password"/>
-                        </div>
-                        <button>Login</button>
-                        <button>Sign up</button>
-                    </form>
+                    <div>
+                        <p>{ name }</p>
+                        <p>Price: ${ price }</p>
+                        <button>Add to cart</button>
+                    </div>
                 )
             }
 
