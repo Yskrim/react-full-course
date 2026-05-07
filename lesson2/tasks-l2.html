@@ -13,13 +13,13 @@
 
         <script type="text/babel">
             
-            //2g add a prop for discount price 
+            //2h cross out text for the original price if discounted 
             function App(){
                 return(
                     <>
                         <ProductDetails name="Cotton socks" price="10.90" discprice="5.45"/>
                         <ProductDetails name="Tennis balls" price="6.00" discprice="3.00"/>
-                        <ProductDetails name="Cotton socks" price="7.99" discprice="3.49"/>
+                        <ProductDetails name="Cotton socks" price="7.99"/>
                     </>
                 )
             }
@@ -28,8 +28,10 @@
                 return (
                     <div>
                         <p>{ name }</p>
-                        <p>Price: ${ price }</p>
-                        <p>Discount price: ${ discprice }</p>
+                        { discprice 
+                            ? <del> <p>Price: ${ price }</p> </del> 
+                            : <p>Price: ${ price }</p> }
+                        { discprice && <p>Discount price: ${ discprice }</p>}
                         <button>Add to cart</button>
                     </div>
                 )
