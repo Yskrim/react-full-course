@@ -19,11 +19,14 @@
                     <>
                         <input 
                             placeholder="Type a name"
+                            value={inText}
                             onChange={(e)=>{
                                 setInText(e.target.value)
                             }}
                         />
                         <p>Hello {inText}</p>
+                        <button onClick={()=>setInText('')}>Reset</button>
+                        <button onClick={()=>setInText('Alice')}>Example</button>
                     </>
                 )
             }
