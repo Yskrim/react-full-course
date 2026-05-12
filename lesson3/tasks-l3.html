@@ -29,10 +29,15 @@
                     setCounter(counter=>counter+1)
                 }
 
+                function resetCounter(){
+                    setCounter(0)
+                }
+
                 return(
                     <>
                         <ButtonComponent counter={counter} handleClick={handleClick}/>
                         <ButtonComponent counter={counter} handleClick={handleClick}/>
+                        <button onClick={resetCounter}>Reset</button>
                     </>
                 )
             }
