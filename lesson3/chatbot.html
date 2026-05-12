@@ -43,7 +43,6 @@
                             id: crypto.randomUUID()
                         }
                     ]
-                    setChatMessages()
 
                     const response = Chatbot.getResponse(inputText);
                     setChatMessages([
@@ -64,6 +63,9 @@
                             placeholder="Send a message to Chatbot" 
                             size="30"
                             onChange={saveInputText}
+                            onKeyDown={(e)=>{
+                                e.key==='Enter'&&sendMessage()
+                            }}
                             value={inputText}
                         />   
                         <button
