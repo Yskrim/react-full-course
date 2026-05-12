@@ -12,25 +12,27 @@
         <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
 
         <script type="text/babel">
-            function ButtonComponent(){
-                const [counter, setCounter] = React.useState(0)   
-                function handleClick(){
-                    setCounter(counter=>counter+1)
-                }
+            function ButtonComponent({counter, handleClick}){  
                 return(
                     <button
-                        onClick={handleClick}
+                    onClick={handleClick}
                     >
-                        Clicked {counter} time{counter===1? '' : 's'}
+                    Clicked {counter} time{counter===1? '' : 's'}
                     </button>
                 )
             }
             
             function App(){
+                const [counter, setCounter] = React.useState(0)   
+                
+                function handleClick(){
+                    setCounter(counter=>counter+1)
+                }
+
                 return(
                     <>
-                        <ButtonComponent />
-                        <ButtonComponent />
+                        <ButtonComponent counter={counter} handleClick={handleClick}/>
+                        <ButtonComponent counter={counter} handleClick={handleClick}/>
                     </>
                 )
             }
