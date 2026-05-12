@@ -62,9 +62,12 @@
                         <input 
                             placeholder="Send a message to Chatbot" 
                             size="30"
-                            onChange={saveInputText}
+                            onChange={(e)=>{
+                                setInputText(e.target.value)
+                            }}
                             onKeyDown={(e)=>{
                                 e.key==='Enter'&&sendMessage()
+                                e.key==='Escape'&&setInputText('')
                             }}
                             value={inputText}
                         />   
