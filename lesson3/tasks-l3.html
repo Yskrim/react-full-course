@@ -12,19 +12,26 @@
         <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
 
         <script type="text/babel">
-            
-            //3c create a button with text and counter, increase counter and write singular 'time' when counter === 1
-            function App(){
+            function ButtonComponent(){
                 const [counter, setCounter] = React.useState(0)   
                 function handleClick(){
-                    setCounter(counter=>counter+1);
-                    console.log('clicked')
+                    setCounter(counter=>counter+1)
                 }
-
                 return(
                     <button
                         onClick={handleClick}
-                    >Clicked {counter} time{counter===1? '' : 's'}</button>
+                    >
+                        Clicked {counter} time{counter===1? '' : 's'}
+                    </button>
+                )
+            }
+            
+            function App(){
+                return(
+                    <>
+                        <ButtonComponent />
+                        <ButtonComponent />
+                    </>
                 )
             }
 
