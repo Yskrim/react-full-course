@@ -29,6 +29,7 @@
 
             function ChatInput({ chatMessages, setChatMessages }){   // component name should start with a Capital letter (Pascal Case)
                 const [inputText, setInputText] = React.useState('');
+                const [isLoading, setIsLoading] = React.useState(false);
 
                 function saveInputText(event){
                     setInputText(event.target.value)
@@ -49,8 +50,10 @@
                         }
                     ]
                     setChatMessages(newChatMessages)
+                    setIsLoading(true)
 
                     const response = await Chatbot.getResponseAsync(inputText);
+                    setIsLoading(false)
                     newChatMessages.splice(-1,1);
                     setChatMessages([
                         ...newChatMessages, 
@@ -69,6 +72,7 @@
                         <input 
                             placeholder="Send a message to Chatbot" 
                             size="30"
+                            disabled={isLoading}
                             onChange={(e)=>{
                                 setInputText(e.target.value)
                             }}
