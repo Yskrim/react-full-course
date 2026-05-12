@@ -13,7 +13,7 @@
 
         <script type="text/babel">
             
-            //3b create a button with text and counter, increase counter and console log 'click' with every button click
+            //3c create a button with text and counter, increase counter and write singular 'time' when counter === 1
             function App(){
                 const [counter, setCounter] = React.useState(0)   
                 function handleClick(){
@@ -24,7 +24,7 @@
                 return(
                     <button
                         onClick={handleClick}
-                    >Clicked {counter} times</button>
+                    >Clicked {counter} time{counter===1? '' : 's'}</button>
                 )
             }
 
