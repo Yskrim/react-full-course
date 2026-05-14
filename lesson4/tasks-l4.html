@@ -23,10 +23,15 @@
 
         <script type="text/babel">
             function App(){
-                
+                const [isBtnOn, setIsBtnOn] = React.useState(false)
                 return(
                     <>
-                        <button className="my-btn">ON</button>
+                        <button 
+                            className="my-btn"
+                            onClick={()=>{
+                                setIsBtnOn(prev=>!prev)
+                            }}
+                        >{isBtnOn ? 'ON' : 'OFF'}</button>
                     </>
                 )
             }
