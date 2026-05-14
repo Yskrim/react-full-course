@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 2 tasks</title>
+    </head>
+    <body>
+        <div class="js-container"></div>
+
+        <script src="https://unpkg.com/supersimpledev/react.js"></script>
+        <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+        <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+        <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+        <script type="text/babel">
+            function App(){
+                const [inText, setInText] = React.useState('')
+                
+                return(
+                    <>
+                        <input 
+                            placeholder="Type a name"
+                            value={inText}
+                            onChange={(e)=>{
+                                setInText(e.target.value)
+                            }}
+                        />
+                        <p>Hello {inText}</p>
+                        <button onClick={()=>setInText('')}>Reset</button>
+                        <button onClick={()=>setInText('Alice')}>Example</button>
+                    </>
+                )
+            }
+
+            const container = document.querySelector('.js-container');
+            ReactDOM.createRoot(container).render(<App />)
+            
+        </script>
+    </body>
+</html>
