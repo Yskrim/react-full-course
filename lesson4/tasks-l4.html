@@ -2,6 +2,24 @@
 <html>
     <head>
         <title>Lesson  tasks</title>
+        <style>
+            button {
+                padding: 10px 15px;
+                border: none;
+                background-color: rgb(25, 135, 84);
+                color: white;
+                cursor: pointer;
+            }
+            .container{
+                display: flex;
+                width: 100vw;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                background-color: rgb(222,222,222)
+            }
+        </style>
     </head>
     <body>
         <div class="js-container"></div>
@@ -36,13 +54,13 @@
                 }
 
                 return(
-                    <>  
+                    <div className="container">  
                         <button ref={buttonElem} onClick={()=>{setCounter(prev=>prev+1)}}>
                             Clicked {counter} times
                         </button>
                         <button onClick={()=>{setCounter(0)}}>Reset</button>
                         <button onClick={handleClick}>Auto Click</button>
-                    </>
+                    </div>
                 )
             }
 
