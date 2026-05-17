@@ -1,7 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lesson 2 tasks</title>
+        <title>Lesson  tasks</title>
+        <style>
+            button {
+                padding: 10px 15px;
+                border: none;
+                background-color: rgb(25, 135, 84);
+                color: white;
+                cursor: pointer;
+            }
+            .container{
+                display: flex;
+                width: 100vw;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                background-color: rgb(222,222,222)
+            }
+        </style>
     </head>
     <body>
         <div class="js-container"></div>
@@ -13,11 +31,36 @@
 
         <script type="text/babel">
             function App(){
-                
-                
+                const [counter, setCounter] = React.useState(0);
+                const [isAutoClickOn, setIsAutoClickOn] = React.useState(false);
+                const autoClickRef = React.useRef(null);
+                const buttonElem = React.useRef(null);
+
+                function reset(){
+                    setCounter(0)
+                }
+
+                function handleClick(){
+                    if(isAutoClickOn){
+                        clearInterval(autoClickRef.current)
+                        setIsAutoClickOn(false)
+                    } else {
+                        autoClickRef.current = setInterval(()=>{
+                            // setCounter(prev=>prev+1)
+                            buttonElem.current.click();
+                        },1000);
+                        setIsAutoClickOn(true)
+                    }
+                }
+
                 return(
-                    <>
-                    </>
+                    <div className="container">  
+                        <button ref={buttonElem} onClick={()=>{setCounter(prev=>prev+1)}}>
+                            Clicked {counter} times
+                        </button>
+                        <button onClick={()=>{setCounter(0)}}>Reset</button>
+                        <button onClick={handleClick}>Auto Click</button>
+                    </div>
                 )
             }
 
