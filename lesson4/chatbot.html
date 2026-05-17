@@ -7,6 +7,10 @@
                 font-family: Arial, Helvetica, sans-serif;
                 margin: 0px 8px;
             }
+            .intro-text{
+                opacity: 0.5;
+                text-align: center;
+            }
 
             .app-container{
                 height: 100vh;
@@ -187,35 +191,14 @@
             }
 
             function App(){
-                const messages = [
-                    {
-                        message: "hello chatbot",
-                        sender: "user",
-                        id: '1'
-                    },
-                    {
-                        message: "Hi! how can I help you?",
-                        sender: "robot",
-                        id: '2'
-                    },
-                    {
-                        message: "Can you get me today's date?",
-                        sender: "user",
-                        id: '3'
-                    },
-                    {
-                        message: "Today is April 8",
-                        sender: "robot",
-                        id: '4'
-                    },
-                ]
-                const [chatMessages, setChatMessages] = React.useState(messages)
+
+                const [chatMessages, setChatMessages] = React.useState([])
 
                 return (
                     <div className="app-container">
-                        <ChatMessages 
-                            chatMessages={chatMessages}
-                        />
+                        {chatMessages.length===0
+                            ? <p className="intro-text">Welcome to the chatbot project! Send a message using the textbox below.</p>
+                            : <ChatMessages chatMessages={chatMessages}/>}
                         <ChatInput 
                             chatMessages={chatMessages}
                             setChatMessages={setChatMessages}
