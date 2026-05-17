@@ -12,21 +12,36 @@
         <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
 
         <script type="text/babel">
-            function getDate(){
-                return dayjs().format("HH:mm:ss")
-            }
             function App(){
-                const [curTime, setCurTime] = React.useState(getDate())
+                const [counter, setCounter] = React.useState(0);
+                const [isAutoClickOn, setIsAutoClickOn] = React.useState(false);
+                const autoClickRef = React.useRef(null);
+                const buttonElem = React.useRef(null);
 
-                React.useEffect(()=>{
-                    console.log('run')
-                    setInterval(()=>{
-                        setCurTime(prev=>getDate())
-                    },1000)
-                }, [])
+                function reset(){
+                    setCounter(0)
+                }
+
+                function handleClick(){
+                    if(isAutoClickOn){
+                        clearInterval(autoClickRef.current)
+                        setIsAutoClickOn(false)
+                    } else {
+                        autoClickRef.current = setInterval(()=>{
+                            // setCounter(prev=>prev+1)
+                            buttonElem.current.click();
+                        },1000);
+                        setIsAutoClickOn(true)
+                    }
+                }
+
                 return(
                     <>  
-                        <p>Current time: {curTime}</p>
+                        <button ref={buttonElem} onClick={()=>{setCounter(prev=>prev+1)}}>
+                            Clicked {counter} times
+                        </button>
+                        <button onClick={()=>{setCounter(0)}}>Reset</button>
+                        <button onClick={handleClick}>Auto Click</button>
                     </>
                 )
             }
