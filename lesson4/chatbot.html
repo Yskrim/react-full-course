@@ -11,6 +11,10 @@
                 opacity: 0.5;
                 text-align: center;
             }
+            .loading-spinner{
+                height: 40px;
+                margin: -15px;
+            }
 
             .app-container{
                 height: 100vh;
@@ -116,6 +120,7 @@
             function ChatInput({ chatMessages, setChatMessages }){
                 const [inputText, setInputText] = React.useState('');
                 const [isLoading, setIsLoading] = React.useState(false);
+                const inputRef = React.useRef(null);
 
                 function saveInputText(event){
                     setInputText(event.target.value)
@@ -130,7 +135,7 @@
                             id: crypto.randomUUID()
                         },
                         {
-                            message: 'Loading',
+                            message: <img src="./assets/loading-spinner.gif" className="loading-spinner"/>,
                             sender: 'robot',
                             id: crypto.randomUUID()
                         }
@@ -139,7 +144,7 @@
                     setIsLoading(true)
 
                     const response = await Chatbot.getResponseAsync(inputText);
-                    setIsLoading(false)
+                    setIsLoading(false);
                     newChatMessages.splice(-1,1);
                     setChatMessages([
                         ...newChatMessages, 
@@ -149,13 +154,20 @@
                             id: crypto.randomUUID()
                         }
                     ])
-
+                    
                     setInputText('')
                 }
+                
+                React.useEffect(()=>{
+                    if(!isLoading && inputRef.current){
+                        inputRef.current.focus()
+                    }
+                },[isLoading])
 
                 return (
                     <div className="chat-input-container">
                         <input 
+                            ref={inputRef}
                             className="chat-input"
                             placeholder="Send a message to Chatbot" 
                             disabled={isLoading}
