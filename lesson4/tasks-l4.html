@@ -1,49 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lesson 2 tasks</title>
-        <style>
-            *{
-                font-family: Arial, Helvetica, sans-serif;
-            }
-
-            .login-form{
-                display: flex;
-                flex-direction: column;
-                max-width: 300px;
-            }
-            .login-form input{
-                padding: 10px 15px;
-                margin: 0 0 10px 0;
-                border: solid;
-                border-color: rgba(50, 50, 50, 0.2);
-                border-width: 1px;
-                border-radius: 8px;
-                width: 100%;
-                box-sizing: border-box;
-            }
-            .login-form button{
-                padding: 10px 15px;
-                margin: 0 0 10px 0;
-                border: none;
-                border-radius: 8px;
-            }
-            .cont{
-                display: flex;
-                gap: 8px;
-            }
-
-            .btn-container{
-                display: flex;
-                gap: 5px;
-                margin: 10px 0 0 0;                
-            }
-            .btn-container button{
-                background-color: rgb(0, 123, 255);
-                color: white;
-                flex: 1;
-            }
-        </style>
+        <title>Lesson  tasks</title>
     </head>
     <body>
         <div class="js-container"></div>
@@ -54,48 +12,21 @@
         <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
 
         <script type="text/babel">
-            function LoginForm(){
-                const [isShownPwd, setIsShownPwd] = React.useState(false);
-                const [pwdInputValue, setPwdInputValue] = React.useState('');
-
-                return(
-                    <div className="login-form">
-                        <div className="cont">
-                            <input 
-                                placeholder="Email"
-                                type="text"
-                            />
-                        </div>
-                        <div className="cont">
-                            <input 
-                                placeholder="Password"
-                                type={isShownPwd ? "text" : "password"}
-                                value={pwdInputValue}
-                                onChange={(e)=>{
-                                    setPwdInputValue(prev=>e.target.value);
-                                }}
-                            />
-                            {pwdInputValue &&
-                                <button 
-                                    onClick={()=>{setIsShownPwd(prev=>!prev)}}
-                                >
-                                    {isShownPwd ? "Hide" : "Show"}
-                                </button>
-                            }
-                        </div>
-                        <div className="btn-container">
-                            <button type="submit">Login</button>
-                            <button>Sign up</button>
-                        </div>
-                    </div>
-                )
+            function getDate(){
+                return dayjs().format("HH:mm:ss")
             }
-
             function App(){
+                const [curTime, setCurTime] = React.useState(getDate())
+
+                React.useEffect(()=>{
+                    console.log('run')
+                    setInterval(()=>{
+                        setCurTime(prev=>getDate())
+                    },1000)
+                }, [])
                 return(
-                    <>
-                        <h2>Hello, welcome to my website</h2>
-                        <LoginForm />
+                    <>  
+                        <p>Current time: {curTime}</p>
                     </>
                 )
             }
