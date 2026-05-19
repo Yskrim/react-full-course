@@ -1,0 +1,13 @@
+.intro-text{
+  opacity: 0.5;
+  text-align: center;
+}
+
+.app-container{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
