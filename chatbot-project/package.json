@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "mktest": "mkdir test-5d; cd test-5d; echo 'this is script for task 5d' >> file.txt",
+    "rmtest": "rm -rf test-5d"
   },
   "dependencies": {
     "react": "^19.1.0",
