@@ -1,0 +1,6 @@
+Hello! This is a command added by the supersimpledev package.
+
+Features:
+- npx supersimpledev chatbot "your message" = send a message to the Chatbot library and get a response.
+Hello! How can I help you?
+Sure! You got 2
