@@ -14,7 +14,6 @@ export async function getWeather(lat, lon){
         throw new Error("could not fetch api data")
       }
       const data = await res.json()
-      console.log(data)
       return generateMessage(data)
 
     } catch(err){

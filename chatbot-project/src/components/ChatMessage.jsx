@@ -1,6 +1,5 @@
 import RobotImage from '../assets/robot.png';
 import UserImage from '../assets/custom-pic.jpeg';
-import dayjs from "dayjs"
 import './ChatMessage.css'
 
 export function ChatMessage({ message, sender, time }){

@@ -64,11 +64,21 @@ export function ChatInput({ chatMessages, setChatMessages }){
                     e.key==='Escape'&&setInputText('')
                 }}
                 value={inputText}
-            />   
-            <button
-                onClick={sendMessage}
-                className="send-button"
-            >Send</button>
+            />
+            <div>
+                <button
+                    onClick={sendMessage}
+                    className="send-button"
+                >Send</button>
+                {chatMessages.length > 0 && 
+                <button 
+                    onClick={()=>{
+                        localStorage.setItem('messages', JSON.stringify([]))
+                        setChatMessages([])
+                    }
+                }
+                >Clear</button>}
+            </div>   
         </div>
     )
 }

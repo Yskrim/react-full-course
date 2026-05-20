@@ -6,7 +6,7 @@ import { getWeather } from './scripts/getWeather';
 import './App.css';
 
 function App(){
-  const [chatMessages, setChatMessages] = useState([])
+  const [chatMessages, setChatMessages] = useState(JSON.parse(localStorage.getItem('messages')) ?? [])
   
   useEffect(()=>{
     const [lat, lon] = [ -27.4698, 153.0251 ]
@@ -15,6 +15,10 @@ function App(){
       "Weather" : async () =>{ return await getWeather(lat,lon)}
     })
   }, [])
+
+  useEffect(()=>{
+    localStorage.setItem('messages', JSON.stringify(chatMessages))
+  }, [chatMessages])
 
   return (
       <div className="app-container">
