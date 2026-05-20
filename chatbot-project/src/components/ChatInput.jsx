@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Chatbot } from 'supersimpledev';
+import dayjs from 'dayjs';
 import LoadingSpinner from '../assets/loading-spinner.gif';
 import './ChatInput.css'
 
@@ -14,11 +15,13 @@ export function ChatInput({ chatMessages, setChatMessages }){
             {
                 message: inputText,
                 sender: 'user',
-                id: crypto.randomUUID()
+                id: crypto.randomUUID(),
+                time: dayjs().format('h:mma'),
             },
             {
                 message: <img src={LoadingSpinner} className="loading-spinner"/>,
                 sender: 'robot',
+                isLoading: true,
                 id: crypto.randomUUID()
             }
         ]
@@ -33,7 +36,8 @@ export function ChatInput({ chatMessages, setChatMessages }){
             {
                 message: response,
                 sender: 'robot',
-                id: crypto.randomUUID()
+                id: crypto.randomUUID(),
+                time: dayjs().format('h:mma'),
             }
         ])
         setInputText('')
@@ -60,11 +64,21 @@ export function ChatInput({ chatMessages, setChatMessages }){
                     e.key==='Escape'&&setInputText('')
                 }}
                 value={inputText}
-            />   
-            <button
-                onClick={sendMessage}
-                className="send-button"
-            >Send</button>
+            />
+            <div>
+                <button
+                    onClick={sendMessage}
+                    className="send-button"
+                >Send</button>
+                {chatMessages.length > 0 && 
+                <button 
+                    onClick={()=>{
+                        localStorage.setItem('messages', JSON.stringify([]))
+                        setChatMessages([])
+                    }
+                }
+                >Clear</button>}
+            </div>   
         </div>
     )
 }
