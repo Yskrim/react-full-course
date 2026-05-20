@@ -1,0 +1,10 @@
+.btn-container{
+  display: flex;
+  gap: 5px;
+  margin: 10px 0 0 0;                
+}
+.btn-container button{
+  background-color: rgb(0, 123, 255);
+  color: white;
+  flex: 1;
+}
