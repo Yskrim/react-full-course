@@ -12,6 +12,7 @@ export function ChatMessages({ chatMessages }){
                         key={obj.id} 
                         message={obj.message} 
                         sender={obj.sender}
+                        time={obj.time}
                     />
                 )
             })}
