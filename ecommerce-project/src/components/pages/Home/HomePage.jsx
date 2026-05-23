@@ -1,13 +1,13 @@
 import "./HomePage.css";
-import { Header } from "../elements/Header";
-
+import { Header } from "../../elements/Header";
 
 export function HomePage() {
 	return (
 		<>
-		<title>ecommerce project</title>
+			<title>ecommerce project</title>
 
 			<Header />
+			<link rel="icon" href="images/favicons/home-favicon.png" />
 
 			<div className="home-page">
 				<div className="products-grid">
