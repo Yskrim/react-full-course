@@ -1,4 +1,4 @@
-import { Header } from "../elements/Header";
+import { Header } from "../../elements/Header";
 import "./TrackingPage.css";
 
 export function TrackingPage() {

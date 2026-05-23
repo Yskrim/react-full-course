@@ -1,9 +1,9 @@
 // import { useState } from 'react'
 import { Route, Routes } from "react-router";
-import { HomePage } from "./components/pages/HomePage";
-import { CheckoutPage } from "./components/pages/CheckoutPage";
-import { OrdersPage } from "./components/pages/OrdersPage";
-import { TrackingPage } from "./components/pages/TrackingPage";
+import { HomePage } from "./components/pages/Home/HomePage";
+import { CheckoutPage } from "./components/pages/Checkout/CheckoutPage";
+import { OrdersPage } from "./components/pages/Orders/OrdersPage";
+import { TrackingPage } from "./components/pages/Tracking/TrackingPage";
 import "./App.css";
 
 function App() {

@@ -1,4 +1,4 @@
-import { CheckoutHeader } from "../elements/CheckoutHeader";
+import { CheckoutHeader } from "../../elements/Checkout/CheckoutHeader";
 import "./CheckoutPage.css";
 
 
