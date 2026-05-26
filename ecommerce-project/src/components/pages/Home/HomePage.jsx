@@ -1,6 +1,7 @@
-import "./HomePage.css";
+import axios from "axios";
 import { Header } from "../../elements/Header";
 import { ProductContainer } from "../../elements/ProductContainer";
+import "./HomePage.css";
 
 export function HomePage() {
 	// try{
@@ -12,14 +13,19 @@ export function HomePage() {
 	// } catch(err){
 	// 	console.log(err.message)
 	// }
-	
-	fetch("http://localhost:3000/api/products")
-		.then((response)=>{
-			return response.json();
-		}).then(data=>{
-			console.log(data)
-		})
 
+	// fetch("http://localhost:3000/api/products")
+	// 	.then((res)=>{
+	// 		return res.json()
+	// 	}).then(data=>{
+	// 		console.log(data)
+	// 	})
+
+
+	axios.get("http://localhost:3000/api/products")
+		.then((response) => {
+			console.log(response.data);
+		});
 
 	return (
 		<>
