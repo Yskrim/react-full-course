@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { Header } from "../../elements/Header";
 import { ProductContainer } from "../../elements/ProductContainer";
 import "./HomePage.css";
@@ -20,23 +21,24 @@ export function HomePage() {
 	// 	}).then(data=>{
 	// 		console.log(data)
 	// 	})
+	const [products, setProducts] = useState([]);
 
-
-	axios.get("http://localhost:3000/api/products")
-		.then((response) => {
-			console.log(response.data);
+	useEffect(() => {
+		axios.get("http://localhost:3000/api/products").then((response) => {
+			setProducts(response.data);
 		});
+	}, []);
 
 	return (
 		<>
 			<title>ecommerce project</title>
+			<link rel="icon" href="images/favicons/home-favicon.png" />
 
 			<Header />
-			<link rel="icon" href="images/favicons/home-favicon.png" />
 
 			<div className="home-page">
 				<div className="products-grid">
-					{/* {products.map(p => {
+					{products.map((p) => {
 						return (
 							<ProductContainer
 								key={p.id}
@@ -47,7 +49,7 @@ export function HomePage() {
 								priceCents={p.priceCents}
 							/>
 						);
-					})} */}
+					})}
 				</div>
 			</div>
 		</>
