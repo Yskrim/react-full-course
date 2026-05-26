@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Header } from "../../elements/Header";
-import { ProductContainer } from "../../elements/ProductContainer";
+import { ProductContainer } from "../../elements/Home/ProductContainer";
 import "./HomePage.css";
 
 export function HomePage({ cart }) {
