@@ -4,7 +4,7 @@ import { Header } from "../../elements/Header";
 import { ProductContainer } from "../../elements/ProductContainer";
 import "./HomePage.css";
 
-export function HomePage() {
+export function HomePage({ cart }) {
 	// try{
 	// 	const res = await fetch("http://localhost:3000/api/products")
 	// 	if(!res.ok){
@@ -22,17 +22,10 @@ export function HomePage() {
 	// 		console.log(data)
 	// 	})
 	const [products, setProducts] = useState([]);
-	const [cart, setCart] = useState([]);
-
 	useEffect(() => {
 		axios.get("/api/products").then((response) => {
 			setProducts(response.data);
 		});
-
-		axios.get("/api/cart-items").then((response) => {
-			setCart(response.data);
-		});
-
 	}, []);
 
 	return (
@@ -48,11 +41,7 @@ export function HomePage() {
 						return (
 							<ProductContainer
 								key={p.id}
-								name={p.name}
-								id={p.id}
-								image={p.image}
-								rating={p.rating}
-								priceCents={p.priceCents}
+								product={p}
 							/>
 						);
 					})}

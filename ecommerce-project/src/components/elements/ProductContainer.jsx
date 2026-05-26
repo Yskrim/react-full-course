@@ -1,16 +1,12 @@
-export function ProductContainer({id, image, name, rating, priceCents}) {
+export function ProductContainer({ product }) {
+	const { id, image, name, rating, priceCents } = product;
 	return (
 		<div className="product-container" id={id}>
 			<div className="product-image-container">
-				<img
-					className="product-image"
-					src={image}
-				/>
+				<img className="product-image" src={image} />
 			</div>
 
-			<div className="product-name limit-text-to-2-lines">
-                {name}
-			</div>
+			<div className="product-name limit-text-to-2-lines">{name}</div>
 
 			<div className="product-rating-container">
 				<img
