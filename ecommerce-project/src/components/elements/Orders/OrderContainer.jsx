@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { formatMoney } from "../../../utils/money";
-import { OrderProductContainer } from "./OrderProductContainer";
+import { OrderDetailsGrid } from "./OrderDetailsGrid";
 
 export function OrderContainer({ order }) {
 	return (
@@ -23,17 +23,7 @@ export function OrderContainer({ order }) {
 				</div>
 			</div>
 
-			<div className="order-details-grid">
-				{order.products.map((item) => {
-					return (
-						<OrderProductContainer
-							item={item}
-							orderID={order.id}
-							key={`${order.id}:${item.productId}`}
-						/>
-					);
-				})}
-			</div>
+			<OrderDetailsGrid order={order} />
 		</div>
 	);
 }

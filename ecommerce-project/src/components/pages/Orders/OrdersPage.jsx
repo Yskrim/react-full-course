@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Header } from "../../elements/Header";
-import { OrderContainer } from "../../elements/Checkout/OrderContainer";
+import { OrderContainer } from "../../elements/Orders/OrderContainer";
 import "./OrdersPage.css";
 
 export function OrdersPage({ cart }) {

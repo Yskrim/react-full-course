@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import { formatMoney } from "../../../utils/money";
+import { DeliveryOptions } from "./DeliveryOptions";
 
 export function CartItemContainer({ item, deliveryOptions }) {
 	const selectedOption = deliveryOptions.find((opt) => {
@@ -29,35 +30,7 @@ export function CartItemContainer({ item, deliveryOptions }) {
 					</div>
 				</div>
 
-				<div className="delivery-options">
-					<div className="delivery-options-title">
-						Choose a delivery option:
-					</div>
-					{deliveryOptions.map((option) => {
-						return (
-							<div key={option.id} className="delivery-option">
-								<input
-									type="radio"
-									defaultChecked={option.id === item.deliveryOptionId}
-									className="delivery-option-input"
-									name={`delivery-option-${item.product.id}`}
-								/>
-								<div>
-									<div className="delivery-option-date">
-										{dayjs(option.estimatedDeliveryTimeMs).format(
-											"dddd, MMMM, D",
-										)}
-									</div>
-									<div className="delivery-option-price">
-										{option.priceCents
-											? `${formatMoney(option.priceCents)} - Shipping`
-											: "FREE Shipping"}
-									</div>
-								</div>
-							</div>
-						);
-					})}
-				</div>
+				<DeliveryOptions deliveryOptions={deliveryOptions} item={item}/>
 			</div>
 		</div>
 	);
