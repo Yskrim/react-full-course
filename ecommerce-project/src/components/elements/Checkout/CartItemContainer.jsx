@@ -1,18 +1,9 @@
-import axios from "axios";
+// import axios from "axios";
 import dayjs from "dayjs";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { formatMoney } from "../../../utils/money";
 
-export function CartItemContainer({ item }) {
-	const [deliveryOptions, setDeliveryOptions] = useState([]);
-
-	useEffect(() => {
-		axios
-			.get("/api/delivery-options?expand=estimatedDeliveryTime")
-			.then((response) => {
-				setDeliveryOptions(response.data);
-			});
-	}, []);
+export function CartItemContainer({ item, deliveryOptions }) {
 
 	const selectedOption = deliveryOptions.find((opt) => {
 		return opt.id === item.deliveryOptionId;
@@ -21,7 +12,7 @@ export function CartItemContainer({ item }) {
 	return (
 		<div key={item.productId} className="cart-item-container">
 			<div className="delivery-date">
-				Delivery date: {selectedOption && dayjs(selectedOption.estimatedDeliveryTimeMs).format("dddd, MMMM, D")}
+				Delivery date: {deliveryOptions.length > 0 && dayjs(selectedOption.estimatedDeliveryTimeMs).format("dddd, MMMM, D")}
 			</div>
 
 			<div className="cart-item-details-grid">
@@ -34,7 +25,7 @@ export function CartItemContainer({ item }) {
 					</div>
 					<div className="product-quantity">
 						<span>
-						е	
+						Quantity: {item.quantity}
 						</span>
 						<span className="update-quantity-link link-primary">Update</span>
 						<span className="delete-quantity-link link-primary">Delete</span>
@@ -50,7 +41,7 @@ export function CartItemContainer({ item }) {
 							<div key={option.id} className="delivery-option">
 								<input
 									type="radio"
-									checked={option.id === item.deliveryOptionId}
+									defaultChecked={option.id === item.deliveryOptionId}
 									className="delivery-option-input"
 									name={`delivery-option-${item.product.id}`}
 								/>
