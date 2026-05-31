@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
+import { useState, useEffect } from "react";
 import { CheckoutHeader } from "../../elements/Checkout/CheckoutHeader";
 import "./CheckoutPage.css";
 import { CartItemContainer } from "../../elements/Checkout/CartItemContainer";

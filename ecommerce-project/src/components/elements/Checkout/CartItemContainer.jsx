@@ -1,10 +1,7 @@
-// import axios from "axios";
 import dayjs from "dayjs";
-// import { useState, useEffect } from "react";
 import { formatMoney } from "../../../utils/money";
 
 export function CartItemContainer({ item, deliveryOptions }) {
-
 	const selectedOption = deliveryOptions.find((opt) => {
 		return opt.id === item.deliveryOptionId;
 	});
@@ -12,7 +9,9 @@ export function CartItemContainer({ item, deliveryOptions }) {
 	return (
 		<div key={item.productId} className="cart-item-container">
 			<div className="delivery-date">
-				Delivery date: {deliveryOptions.length > 0 && dayjs(selectedOption.estimatedDeliveryTimeMs).format("dddd, MMMM, D")}
+				Delivery date:{" "}
+				{deliveryOptions.length > 0 &&
+					dayjs(selectedOption.estimatedDeliveryTimeMs).format("dddd, MMMM, D")}
 			</div>
 
 			<div className="cart-item-details-grid">
@@ -24,9 +23,7 @@ export function CartItemContainer({ item, deliveryOptions }) {
 						{formatMoney(item.product.priceCents)}
 					</div>
 					<div className="product-quantity">
-						<span>
-						Quantity: {item.quantity}
-						</span>
+						<span>Quantity: {item.quantity}</span>
 						<span className="update-quantity-link link-primary">Update</span>
 						<span className="delete-quantity-link link-primary">Delete</span>
 					</div>
