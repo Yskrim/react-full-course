@@ -1,6 +1,6 @@
-import dayjs from "dayjs";
 import { Link } from "react-router";
 import buyAgainIcon from "../../../assets/images/icons/buy-again.png";
+import { ProductDeliveryDate } from "./ProductDeliveryDate";
 
 export function OrderProductContainer({ orderID, item }) {
 	return (
@@ -11,10 +11,9 @@ export function OrderProductContainer({ orderID, item }) {
 
 			<div className="product-details">
 				<div className="product-name">{item.product.name}</div>
-				<div className="product-delivery-date">
-					Arriving on:{" "}
-					{dayjs(item.product.estimatedDeliveryTimeMs).format("MMMM D, YYYY")}
-				</div>
+
+				<ProductDeliveryDate date={item.product.estimatedDeliveryTimeMs} />
+
 				<div className="product-quantity">Quantity: {item.quantity}</div>
 				<button className="buy-again-button button-primary">
 					<img className="buy-again-icon" src={buyAgainIcon} />
