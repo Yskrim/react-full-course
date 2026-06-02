@@ -3,7 +3,7 @@ import { formatMoney } from "../../../utils/money";
 
 export function DeliveryOptionContainer({option, item}) {
 	return (
-		<div key={option.id} className="delivery-option">
+		<div className="delivery-option">
 			<input
 				type="radio"
 				defaultChecked={option.id === item.deliveryOptionId}
