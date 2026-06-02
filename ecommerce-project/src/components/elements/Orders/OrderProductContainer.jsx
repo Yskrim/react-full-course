@@ -22,7 +22,7 @@ export function OrderProductContainer({ orderID, item }) {
 			</div>
 
 			<div className="product-actions">
-				<Link to="/tracking" id={`${orderID}-${item.productId}`}>
+				<Link to={`/tracking/${orderID}/${item.productId}`}>
 					<button className="track-package-button button-secondary">
 						Track package
 					</button>
