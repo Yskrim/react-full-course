@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import { formatMoney } from "../../../utils/money";
 import { DeliveryOptions } from "./DeliveryOptions";
 
-export function CartItemContainer({ item, deliveryOptions }) {
+export function CartItemContainer({ item, deliveryOptions, loadCart }) {
 	const selectedOption = deliveryOptions.find((opt) => {
 		return opt.id === item.deliveryOptionId;
 	});
@@ -30,7 +30,7 @@ export function CartItemContainer({ item, deliveryOptions }) {
 					</div>
 				</div>
 
-				<DeliveryOptions deliveryOptions={deliveryOptions} item={item}/>
+				<DeliveryOptions deliveryOptions={deliveryOptions} item={item} loadCart={loadCart}/>
 			</div>
 		</div>
 	);
