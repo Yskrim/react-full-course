@@ -4,6 +4,7 @@ import { CheckoutHeader } from "../../elements/Checkout/CheckoutHeader";
 import "./CheckoutPage.css";
 import { PaymentSummaryContainer } from "../../elements/Checkout/PaymentSummaryContainer";
 import { CheckoutSummaryContainer } from "../../elements/Checkout/CheckoutSummaryContainer";
+import { ResetButton } from "../../elements/ResetButton";
 
 export function CheckoutPage({ cart, loadCart }) {
 	const [paymentSummary, setPaymentSummary] = useState(null);
@@ -49,6 +50,7 @@ export function CheckoutPage({ cart, loadCart }) {
 					)}
 				</div>
 			</div>
+			<ResetButton loadCart={loadCart}/>
 		</>
 	);
 }

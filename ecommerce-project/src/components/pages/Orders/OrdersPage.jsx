@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Header } from "../../elements/Header";
 import { OrdersGrid } from "../../elements/Orders/OrdersGrid";
 import "./OrdersPage.css";
+import { ResetButton } from "../../elements/ResetButton";
 
 export function OrdersPage({ cart, loadCart }) {
 	const [orders, setOrders] = useState([]);
@@ -22,7 +23,8 @@ export function OrdersPage({ cart, loadCart }) {
 				<Header cart={cart} />
 				<div className="page-title">Your Orders</div>
 
-				<OrdersGrid orders={orders} loadCart={loadCart}/>
+				<OrdersGrid orders={orders} loadCart={loadCart} />
+				<ResetButton loadCart={loadCart} />
 			</div>
 		</>
 	);

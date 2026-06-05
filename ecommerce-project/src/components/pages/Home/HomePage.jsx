@@ -2,28 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Header } from "../../elements/Header";
 import { ProductsGrid } from "../../elements/Home/ProductsGrid";
+import { ResetButton } from "../../elements/ResetButton";
 import "./HomePage.css";
 
-export function HomePage({ cart, loadCart }) {
-	/*
-	try{
-		const res = await fetch("http://localhost:3000/api/products")
-		if(!res.ok){
-			throw new Error('HTTP error')
-		}
-		const products = await res.json()
-	} catch(err){
-		console.log(err.message)
-	}
-
-	fetch("http://localhost:3000/api/products")
-		.then((res)=>{
-			return res.json()
-		}).then(data=>{
-			console.log(data)
-		})
-	*/
-	
+export function HomePage({ cart, loadCart }) {	
 	const [products, setProducts] = useState([]);
 	useEffect(() => {
 		const getHomeData = async()=>{
@@ -43,6 +25,8 @@ export function HomePage({ cart, loadCart }) {
 				<Header cart={cart} />
 				<ProductsGrid products={products} loadCart={loadCart}/>
 			</div>
+
+			<ResetButton loadCart={loadCart}/>
 		</>
 	);
 }
