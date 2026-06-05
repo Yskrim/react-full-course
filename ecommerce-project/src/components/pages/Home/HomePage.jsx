@@ -4,7 +4,7 @@ import { Header } from "../../elements/Header";
 import { ProductsGrid } from "../../elements/Home/ProductsGrid";
 import "./HomePage.css";
 
-export function HomePage({ cart }) {
+export function HomePage({ cart, loadCart }) {
 	/*
 	try{
 		const res = await fetch("http://localhost:3000/api/products")
@@ -41,7 +41,7 @@ export function HomePage({ cart }) {
 
 			<div className="home-page">
 				<Header cart={cart} />
-				<ProductsGrid products={products} />
+				<ProductsGrid products={products} loadCart={loadCart}/>
 			</div>
 		</>
 	);

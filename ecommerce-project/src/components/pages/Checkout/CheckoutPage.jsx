@@ -5,7 +5,7 @@ import "./CheckoutPage.css";
 import { PaymentSummaryContainer } from "../../elements/Checkout/PaymentSummaryContainer";
 import { CheckoutSummaryContainer } from "../../elements/Checkout/CheckoutSummaryContainer";
 
-export function CheckoutPage({ cart }) {
+export function CheckoutPage({ cart, loadCart }) {
 	const [paymentSummary, setPaymentSummary] = useState(null);
 
 	const [deliveryOptions, setDeliveryOptions] = useState([]);
@@ -22,7 +22,7 @@ export function CheckoutPage({ cart }) {
 		};
 
 		Promise.all([fetchDeliveryOptions(),fetchPaymentSummary()]);
-	}, []);
+	}, [cart]);
 
 	return (
 		<>
@@ -37,10 +37,11 @@ export function CheckoutPage({ cart }) {
 					<CheckoutSummaryContainer
 						cart={cart}
 						deliveryOptions={deliveryOptions}
+						loadCart={loadCart}
 					/>
 
 					{paymentSummary && (
-						<PaymentSummaryContainer paymentSummary={paymentSummary} />
+						<PaymentSummaryContainer paymentSummary={paymentSummary} loadCart={loadCart} />
 					)}
 				</div>
 			</div>

@@ -1,6 +1,6 @@
 import { CartItemContainer } from "./CartItemContainer";
 
-export function CheckoutSummaryContainer({ cart, deliveryOptions }) {
+export function CheckoutSummaryContainer({ cart, deliveryOptions, loadCart }) {
 	return (
 		<div className="order-summary">
 			{cart.map((item) => {
@@ -9,6 +9,7 @@ export function CheckoutSummaryContainer({ cart, deliveryOptions }) {
 						key={item.productId}
 						item={item}
 						deliveryOptions={deliveryOptions}
+						loadCart={loadCart}
 					/>
 				);
 			})}
