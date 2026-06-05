@@ -1,6 +1,6 @@
 import { OrderProductContainer } from "./OrderProductContainer";
 
-export function OrderDetailsGrid({order}) {
+export function OrderDetailsGrid({order, loadCart}) {
 	return (
 		<div className="order-details-grid">
 			{order.products.map((item) => {
@@ -9,6 +9,7 @@ export function OrderDetailsGrid({order}) {
 						item={item}
 						orderID={order.id}
 						key={`${order.id}:${item.productId}`}
+						loadCart={loadCart}
 					/>
 				);
 			})}

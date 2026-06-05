@@ -1,8 +1,19 @@
+import axios from "axios";
 import { Link } from "react-router";
 import buyAgainIcon from "../../../assets/images/icons/buy-again.png";
 import { ProductDeliveryDate } from "./ProductDeliveryDate";
 
-export function OrderProductContainer({ orderID, item }) {
+
+export function OrderProductContainer({ orderID, item, loadCart }) {
+
+	const addToCart = async () => {
+		await axios.post("/api/cart-items", {
+			productId: item.product.id,
+			quantity : 1,
+		});
+		await loadCart();
+	};
+
 	return (
 		<div className="order-product-container">
 			<div className="product-image-container">
@@ -17,7 +28,9 @@ export function OrderProductContainer({ orderID, item }) {
 				<div className="product-quantity">Quantity: {item.quantity}</div>
 				<button className="buy-again-button button-primary">
 					<img className="buy-again-icon" src={buyAgainIcon} />
-					<span className="buy-again-message">Add to Cart</span>
+					<span className="buy-again-message" onClick={addToCart}>
+						Add to Cart
+					</span>
 				</button>
 			</div>
 
