@@ -12,12 +12,13 @@ export function DeliveryOptionContainer({option, item, loadCart}) {
 	}
 
 	return (
-		<div className="delivery-option" onClick={updateDeliveryOption}>
+		<div className="delivery-option">
 			<input
 				type="radio"
 				defaultChecked={option.id === item.deliveryOptionId}
 				className="delivery-option-input"
 				name={`delivery-option-${item.product.id}`}
+				onClick={updateDeliveryOption}
 			/>
 			<div>
 				<div className="delivery-option-date">

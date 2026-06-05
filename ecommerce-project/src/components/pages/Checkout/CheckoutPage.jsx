@@ -16,12 +16,16 @@ export function CheckoutPage({ cart, loadCart }) {
 			setDeliveryOptions(response.data);
 		};
 
+		fetchDeliveryOptions()
+	}, []);
+
+	useEffect(() => {
 		const fetchPaymentSummary = async () => {
 			const response = await axios.get("/api/payment-summary");
 			setPaymentSummary(response.data);
 		};
 
-		Promise.all([fetchDeliveryOptions(),fetchPaymentSummary()]);
+		fetchPaymentSummary();
 	}, [cart]);
 
 	return (
