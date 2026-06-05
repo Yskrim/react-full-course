@@ -41,7 +41,7 @@ export function CheckoutPage({ cart, loadCart }) {
 					/>
 
 					{paymentSummary && (
-						<PaymentSummaryContainer paymentSummary={paymentSummary} />
+						<PaymentSummaryContainer paymentSummary={paymentSummary} loadCart={loadCart} />
 					)}
 				</div>
 			</div>
