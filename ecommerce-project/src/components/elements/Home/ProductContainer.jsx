@@ -68,7 +68,7 @@ export function ProductContainer({ product, loadCart }) {
 
 			<div className="product-spacer"></div>
 
-			<div className="added-to-cart" style={isShown ? { opacity: 1 } : { opacity: 0 }}>
+			<div className="added-to-cart" style={{ opacity: isShown ? 1 : 0 }}>
 				<img src="images/icons/checkmark.png" />
 				Added
 			</div>
