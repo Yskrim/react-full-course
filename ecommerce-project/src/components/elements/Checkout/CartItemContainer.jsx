@@ -26,9 +26,14 @@ export function CartItemContainer({ item, deliveryOptions, loadCart }) {
 		} else if (newValue === 0) {
 			deleteItem();
 		} else {
-			setNewValue(item.quantity)
+			setNewValue(item.quantity);
 			setIsUpdating(false);
 		}
+	};
+
+	const handleSave = () => {
+		updateItem();
+		setIsUpdating(false);
 	};
 
 	return (
@@ -48,17 +53,28 @@ export function CartItemContainer({ item, deliveryOptions, loadCart }) {
 						{formatMoney(item.product.priceCents)}
 					</div>
 					<div className="product-quantity">
-						
 						{isUpdating ? (
 							<>
 								<span>Quantity:</span>
-								<input type="number" value={newValue} onChange={(e)=>{setNewValue(Number(e.currentTarget.value))}}/>
+								<input
+									type="number"
+									value={newValue}
+									autoFocus
+									style={{width: 50}}
+									onChange={(e) => {
+										setNewValue(Number(e.currentTarget.value));
+									}}
+									onKeyDown={(e) => {
+										e.key === "Enter" && handleSave();
+										if (e.key === "Escape") {
+											setNewValue(item.quantity);
+											setIsUpdating(false);
+										}
+									}}
+								/>
 								<span
 									className="update-quantity-link link-primary"
-									onClick={() => {
-										updateItem();
-										setIsUpdating(false);
-									}}
+									onClick={handleSave}
 								>
 									Save
 								</span>
