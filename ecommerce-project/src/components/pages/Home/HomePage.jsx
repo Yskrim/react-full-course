@@ -2,37 +2,23 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Header } from "../../elements/Header";
 import { ProductsGrid } from "../../elements/Home/ProductsGrid";
+import { ResetButton } from "../../elements/ResetButton";
+import { useSearchParams } from "react-router";
 import "./HomePage.css";
 
 export function HomePage({ cart, loadCart }) {
-	/*
-	try{
-		const res = await fetch("http://localhost:3000/api/products")
-		if(!res.ok){
-			throw new Error('HTTP error')
-		}
-		const products = await res.json()
-	} catch(err){
-		console.log(err.message)
-	}
+	const [searchParams] = useSearchParams();
+	const search = searchParams.get("search");
 
-	fetch("http://localhost:3000/api/products")
-		.then((res)=>{
-			return res.json()
-		}).then(data=>{
-			console.log(data)
-		})
-	*/
-	
 	const [products, setProducts] = useState([]);
 	useEffect(() => {
-		const getHomeData = async()=>{
+		const getHomeData = async () => {
 			const response = await axios.get("/api/products");
 			setProducts(response.data);
 		};
 
 		getHomeData();
-	}, []);
+	}, [search]);
 
 	return (
 		<>
@@ -40,9 +26,11 @@ export function HomePage({ cart, loadCart }) {
 			<link rel="icon" href="images/favicons/home-favicon.png" />
 
 			<div className="home-page">
-				<Header cart={cart} />
-				<ProductsGrid products={products} loadCart={loadCart}/>
+				<Header cart={cart} searchStr={search}/>
+				<ProductsGrid products={products} loadCart={loadCart} search={search}/>
 			</div>
+
+			<ResetButton loadCart={loadCart} />
 		</>
 	);
 }

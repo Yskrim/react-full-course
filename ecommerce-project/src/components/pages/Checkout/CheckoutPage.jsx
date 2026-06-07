@@ -4,6 +4,7 @@ import { CheckoutHeader } from "../../elements/Checkout/CheckoutHeader";
 import "./CheckoutPage.css";
 import { PaymentSummaryContainer } from "../../elements/Checkout/PaymentSummaryContainer";
 import { CheckoutSummaryContainer } from "../../elements/Checkout/CheckoutSummaryContainer";
+import { ResetButton } from "../../elements/ResetButton";
 
 export function CheckoutPage({ cart, loadCart }) {
 	const [paymentSummary, setPaymentSummary] = useState(null);
@@ -16,12 +17,16 @@ export function CheckoutPage({ cart, loadCart }) {
 			setDeliveryOptions(response.data);
 		};
 
+		fetchDeliveryOptions()
+	}, []);
+
+	useEffect(() => {
 		const fetchPaymentSummary = async () => {
 			const response = await axios.get("/api/payment-summary");
 			setPaymentSummary(response.data);
 		};
 
-		Promise.all([fetchDeliveryOptions(),fetchPaymentSummary()]);
+		fetchPaymentSummary();
 	}, [cart]);
 
 	return (
@@ -45,6 +50,7 @@ export function CheckoutPage({ cart, loadCart }) {
 					)}
 				</div>
 			</div>
+			<ResetButton loadCart={loadCart}/>
 		</>
 	);
 }

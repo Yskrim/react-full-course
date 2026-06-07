@@ -4,8 +4,9 @@ import { Header } from "../../elements/Header";
 import "./TrackingPage.css";
 import dayjs from "dayjs";
 import axios from "axios";
+import { ResetButton } from "../../elements/ResetButton";
 
-export function TrackingPage({ cart }) {
+export function TrackingPage({ cart, loadCart }) {
 	const { orderId, productId } = useParams();
 	const [order, setOrder] = useState(null);
 
@@ -79,6 +80,8 @@ export function TrackingPage({ cart }) {
 					</div>
 				</div>
 			</div>
+
+			<ResetButton loadCart={loadCart}/>
 		</>
 	);
 }

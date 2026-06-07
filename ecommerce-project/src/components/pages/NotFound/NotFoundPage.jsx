@@ -1,6 +1,7 @@
 import { Header } from "../../elements/Header";
 import { Link } from "react-router";
 import "./NotFoundPage.css"
+import { ResetButton } from "../../elements/ResetButton";
 
 export function NotFoundPage() {
 	return (
@@ -13,6 +14,7 @@ export function NotFoundPage() {
 				<h2>Page not found</h2>
 				<Link to="/">Return to home</Link>
 			</div>
+			<ResetButton loadCart={loadCart}/>
 		</>
 	);
 }
