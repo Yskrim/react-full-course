@@ -12,7 +12,6 @@ export function ProductsGrid({ products, loadCart, search }) {
 	return (
 		<div className="products-grid">
 			{products.map((p) => {
-				console.log(p);
 				return (
 					searchCriteria(p, search) && (
 						<ProductContainer key={p.id} product={p} loadCart={loadCart} />
