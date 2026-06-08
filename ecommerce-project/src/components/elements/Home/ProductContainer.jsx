@@ -31,7 +31,7 @@ export function ProductContainer({ product, loadCart }) {
 	}
 
 	return (
-		<div className="product-container" id={id}>
+		<div className="product-container" id={id} data-testid="product-container">
 			<div className="product-image-container">
 				<img className="product-image" src={image} data-testid="product-image"/>
 			</div>
