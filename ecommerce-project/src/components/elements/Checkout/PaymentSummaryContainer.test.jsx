@@ -1,6 +1,6 @@
 import { it, expect, describe, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router";
+import { MemoryRouter, useLocation } from "react-router";
 import { PaymentSummaryContainer } from "./PaymentSummaryContainer";
 import axios from "axios";
 import userEvent from "@testing-library/user-event";
@@ -43,9 +43,17 @@ describe("PaymentSummaryContainer integration test", () => {
 	});
 
 	it("place order button navigates to orders page", async () => {
+
+        function Location(){
+            const location = useLocation();
+            console.log(location)
+            return <div data-testid="url-path">{location.pathname}</div>
+        }
+
 		render(
 			<MemoryRouter>
 				<PaymentSummaryContainer paymentSummary={paymentSummary} loadCart={loadCart} />
+                <Location />
 			</MemoryRouter>
 		);
 
@@ -53,6 +61,7 @@ describe("PaymentSummaryContainer integration test", () => {
 		await user.click(placeOrderButton);
 
 		expect(axios.post).toHaveBeenCalledWith("/api/orders");
+        expect(screen.getByTestId("url-path")).toHaveTextContent("/orders")
         expect(loadCart).toHaveBeenCalled();
         expect(loadCart).toHaveBeenCalledTimes(1);
 	});
