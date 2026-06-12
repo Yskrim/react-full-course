@@ -37,7 +37,7 @@ export function CartItemContainer({ item, deliveryOptions, loadCart }) {
 	};
 
 	return (
-		<div key={item.productId} className="cart-item-container">
+		<div key={item.productId} className="cart-item-container" data-testid="cart-item-container">
 			<div className="delivery-date">
 				Delivery date:{" "}
 				{deliveryOptions.length > 0 &&
@@ -71,9 +71,11 @@ export function CartItemContainer({ item, deliveryOptions, loadCart }) {
 											setIsUpdating(false);
 										}
 									}}
+									data-testid="qty-input"
 								/>
 								<span
 									className="update-quantity-link link-primary"
+									data-testid="save-btn"
 									onClick={handleSave}
 								>
 									Save
@@ -87,6 +89,8 @@ export function CartItemContainer({ item, deliveryOptions, loadCart }) {
 									onClick={() => {
 										setIsUpdating(true);
 									}}
+
+									data-testid="update-btn"
 								>
 									Update
 								</span>
