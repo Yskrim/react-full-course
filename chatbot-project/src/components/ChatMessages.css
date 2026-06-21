@@ -1,7 +1,6 @@
-.chat-messages-container{
-    flex-grow: 1;
-    margin-top:20px;
-    margin-bottom: 20px;
-    overflow: scroll;
-    scrollbar-width: none;
-  }
+.chat-messages-container {
+	margin-top: 20px;
+	margin-bottom: 120px;
+	overflow: scroll;
+	scrollbar-width: none;
+}
