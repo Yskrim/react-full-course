@@ -1,0 +1,9 @@
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm error code ENOENT
+npm error syscall open
+npm error path /Users/antonkorotkov/Desktop/CODE/react-full-course/package.json
+npm error errno -2
+npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/Users/antonkorotkov/Desktop/CODE/react-full-course/package.json'
+npm error enoent This is related to npm not being able to find a file.
+npm error enoent
+npm error A complete log of this run can be found in: /var/folders/lr/_sv7b9dj51jd2ry3rkwlkz5h0000gn/T/cursor-sandbox-cache/8f35e35515ed19be3511a9d0cb8a05f0/npm/_logs/2026-06-19T04_40_17_945Z-debug-0.log
