@@ -5,9 +5,9 @@
 
 .chat-input {
 	padding: 15px 10px;
-	/* 16px minimum prevents iOS Safari from auto-zooming on focus */
 	font-size: 16px;
 	flex-grow: 1;
+	min-width: 0;
 	border: none;
 }
 
@@ -50,7 +50,8 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	margin-left: auto;
+	/* size to the buttons only; let the input take the remaining space */
+	flex: 0 0 auto;
 }
 
 .button-group button {
@@ -77,15 +78,13 @@
 	pointer-events: auto;
 }
 
-/* Anchor the primary Send button to the right edge; Clear sits to its left */
 .send-button {
-	order: 1;
+	order: 2;
 }
 
 @media (max-width: 768px) {
 	.chat-input {
 		font-size: 16px;
-		flex-grow: 1;
 		border: none;
 	}
 
