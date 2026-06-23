@@ -4,3 +4,12 @@
 	overflow: scroll;
 	scrollbar-width: none;
 }
+
+@media (max-width: 768px) {
+	.chat-messages-container {
+		margin: 20px 1% 0 1%;
+		margin-bottom: 80px;
+		overflow: scroll;
+		scrollbar-width: none;
+	}
+}
