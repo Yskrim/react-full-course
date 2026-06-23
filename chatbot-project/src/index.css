@@ -1,5 +1,8 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	margin: 0px 8px;
+	margin: 0px;
 	background-color: rgb(241, 244, 247);
+}
+
+@media (max-width: 768px) {
 }
