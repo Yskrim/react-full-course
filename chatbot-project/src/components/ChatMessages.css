@@ -9,6 +9,7 @@
 	.chat-messages-container {
 		margin: 20px 1% 0 1%;
 		margin-bottom: 80px;
+		flex: 1;
 		overflow: scroll;
 		scrollbar-width: none;
 	}

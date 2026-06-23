@@ -16,7 +16,7 @@
 }
 .chat-input-container {
 	position: fixed;
-	bottom: 0;
+	bottom: var(--keyboard-inset, 0);
 	left: 10%;
 	right: 10%;
 
@@ -90,7 +90,7 @@
 
 	.chat-input-container {
 		position: fixed;
-		bottom: 0;
+		bottom: var(--keyboard-inset, 0);
 		left: 5%;
 		right: 5%;
 

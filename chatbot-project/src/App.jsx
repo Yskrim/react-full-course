@@ -3,10 +3,13 @@ import { ChatInput } from './components/ChatInput';
 import { ChatMessages } from './components/ChatMessages';
 import { Chatbot } from 'supersimpledev';
 import { getWeather } from './scripts/getWeather';
+import { useViewportHeight } from './hooks/useViewportHeight';
 import './App.css';
 
 function App(){
-  const [chatMessages, setChatMessages] = useState(JSON.parse(localStorage.getItem('messages')) ?? [])
+  const [chatMessages, setChatMessages] = useState(JSON.parse(localStorage.getItem('messages')) ?? []);
+
+  useViewportHeight();
   
   useEffect(()=>{
     const [lat, lon] = [ -27.4698, 153.0251 ]
