@@ -9,7 +9,7 @@ export function ChatInput({ chatMessages, setChatMessages }) {
 	const inputRef = useRef(null);
 
     async function sendRequest(query, messages){
-        const res = await fetch("http://localhost:3000/api/chat", {
+        const res = await fetch("/api/chat", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({ query: query, messages: [...messages] }),
