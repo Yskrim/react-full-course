@@ -1,24 +1,63 @@
-.send-button{
-    background-color: rgb(25, 135, 84);
-    color: white;
-  }
-  
-  .chat-input{
-    padding: 12px 15px;
-    border-width: 1px;
-    border-color: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    font-size: 15px;
-    flex-grow: 1;
-  }
-  
-  .chat-input-container{
-    display: grid;
-    grid-template-columns: 1fr auto;
-    margin-bottom: 60px;
-  }
+.send-button {
+	background-color: rgb(25, 135, 84);
+	color: white;
+}
 
-  .loading-spinner{
-    height: 40px;
-    margin: -15px;
-  }
+.chat-input {
+	padding: 15px 10px;
+	font-size: 15px;
+	flex-grow: 1;
+	border: none;
+}
+
+.chat-input:focus {
+	outline: none;
+	box-shadow: none;
+}
+.chat-input-container {
+  position: fixed;
+	bottom: 0;
+	left: 10%;
+	right: 10%;
+
+
+	display: flex;
+  flex-grow: 1;
+	margin-bottom: 30px;
+	background-color: white;
+	padding: 20px;
+	border: solid;
+	border-width: 1px;
+	border-color: rgba(0, 0, 0, 0.2);
+	border-radius: 20px;
+}
+
+.spacer-bottom{
+  height: 30px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+	background-color: rgb(241, 244, 247);
+}
+
+.loading-spinner {
+	height: 40px;
+	margin: -15px;
+}
+
+.button-group {
+	display: flex;
+	gap: 2px;
+	opacity: 0; 
+	transform: translateY(8px);
+	pointer-events: none;
+	transition:
+		opacity 350ms ease-out,
+		transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.button-group.is-visible {
+	opacity: 1; 
+	transform: translateY(0);
+	pointer-events: auto;
+}
