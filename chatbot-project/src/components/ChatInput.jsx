@@ -8,15 +8,15 @@ export function ChatInput({ chatMessages, setChatMessages }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const inputRef = useRef(null);
 
-    async function sendRequest(query, messages){
-        const res = await fetch("/api/serverlessChat", {
+	async function sendRequest(query, messages) {
+		const res = await fetch("/api/serverlessChat", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({ query: query, messages: [...messages] }),
 		});
 		const data = await res.json();
 		return data.response;
-    }
+	}
 
 	async function sendMessage() {
 		const newChatMessages = [
@@ -28,7 +28,7 @@ export function ChatInput({ chatMessages, setChatMessages }) {
 				time: dayjs().format("h:mma"),
 			},
 			{
-				message: '',
+				message: "",
 				sender: "robot",
 				isLoading: true,
 				id: crypto.randomUUID(),
@@ -61,7 +61,7 @@ export function ChatInput({ chatMessages, setChatMessages }) {
 
 	return (
 		<div className="chat-input-container">
-            <div className="spacer-bottom"></div>
+			<div className="spacer-bottom"></div>
 			<input
 				ref={inputRef}
 				className="chat-input"
@@ -76,20 +76,22 @@ export function ChatInput({ chatMessages, setChatMessages }) {
 				}}
 				value={inputText}
 			/>
-			<div className={`button-group ${inputText ? "is-visible" : ""}`}>
-				<button onClick={sendMessage} className="send-button">
+			<div className={`button-group`}>
+				<button
+					onClick={sendMessage}
+					className={`${inputText ? "is-visible" : ""} send-button`}
+				>
 					Send
 				</button>
-				{chatMessages.length > 0 && (
-					<button
-						onClick={() => {
-							localStorage.setItem("messages", JSON.stringify([]));
-							setChatMessages([]);
-						}}
-					>
-						Clear
-					</button>
-				)}
+				<button
+					className={`${chatMessages.length > 0 ? "is-visible" : ""}`}
+					onClick={() => {
+						localStorage.setItem("messages", JSON.stringify([]));
+						setChatMessages([]);
+					}}
+				>
+					Clear
+				</button>
 			</div>
 		</div>
 	);
